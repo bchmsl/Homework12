@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.AppCompatTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="130dp"
+    android:layout_height="40dp"
+    android:gravity="center"
+    android:padding="2dp"
+    android:fontFamily="sans-serif-light"
+    android:textSize="20sp"
+    tools:text="Coupe">
+
+</androidx.appcompat.widget.AppCompatTextView>
