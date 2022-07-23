@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp"
+    android:background="@drawable/drawable_rectangle"
+    android:backgroundTint="@color/black"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".ui.ModelOpenedFragment">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvModel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="sans-serif-light"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        tools:text="Mercedes-Benz C-Class Coupe" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivImage"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        tools:src="@drawable/img_mb_c_coupe" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="sans-serif-condensed-light"
+        android:gravity="center"
+        android:text="@string/starting_from"
+        android:textColor="@color/grey"
+        android:textSize="20sp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="sans-serif-light"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        tools:text="$ 100 000" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnOrder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/drawable_rectangle"
+        android:backgroundTint="@color/white"
+        android:fontFamily="sans-serif-light"
+        android:text="@string/order"
+        android:textAllCaps="false"
+        android:textSize="20sp" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

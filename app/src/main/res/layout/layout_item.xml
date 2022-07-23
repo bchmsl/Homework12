@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:padding="10dp"
+    android:layout_height="wrap_content"
+    android:backgroundTint="@color/black"
+    android:layout_margin="10dp"
+    android:background="@drawable/drawable_rectangle">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivImage"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scaleType="centerInside"
+        app:layout_constraintDimensionRatio="3:2"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/img_mb_c_coupe" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvModel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:layout_constraintTop_toBottomOf="@id/ivImage"
+        tools:text="Mercedes-Benz C-class" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvStartingFromTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:gravity="center"
+        android:text="@string/starting_from"
+        android:textColor="@color/grey"
+        android:textSize="15sp"
+        app:layout_constraintTop_toBottomOf="@id/tvModel" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/tvStartingFromTitle"
+        tools:text="$130,000" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
