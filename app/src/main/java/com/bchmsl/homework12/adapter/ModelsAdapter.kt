@@ -10,7 +10,7 @@ import com.bchmsl.homework12.extensions.toEuro
 import com.bchmsl.homework12.model.Model
 
 class ModelsAdapter : ListAdapter<Model, ModelsAdapter.ModelViewHolder>(ModelCallback()) {
-    var itemClickListener : ((Model) -> Unit)? = null
+    var onItemClickListener : ((Model) -> Unit)? = null
     inner class ModelViewHolder(private val binding: LayoutItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind() {
@@ -19,7 +19,7 @@ class ModelsAdapter : ListAdapter<Model, ModelsAdapter.ModelViewHolder>(ModelCal
                 tvModel.text = currentItem.fullModelName
                 tvPrice.text = currentItem.price?.toEuro() ?: "Price coming soon"
                 ivImage.setImageResource(currentItem.image)
-                root.setOnClickListener { itemClickListener?.invoke(currentItem) }
+                root.setOnClickListener { onItemClickListener?.invoke(currentItem) }
             }
         }
     }

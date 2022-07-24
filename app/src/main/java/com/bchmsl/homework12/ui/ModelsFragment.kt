@@ -1,12 +1,13 @@
 package com.bchmsl.homework12.ui
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.bchmsl.homework12.R
@@ -16,6 +17,7 @@ import com.bchmsl.homework12.model.Data
 import com.bchmsl.homework12.model.Model
 
 class ModelsFragment : Fragment() {
+
     private var _binding: FragmentModelsBinding? = null
     private val binding get() = _binding!!
     private val adapter by lazy { ModelsAdapter() }
@@ -35,12 +37,13 @@ class ModelsFragment : Fragment() {
 
     private fun init() {
         listeners()
-        setupRecycler()
-        setupSpinner()
+        setupModelsRecycler()
+        setupCategoriesSpinner()
     }
 
-    private fun setupSpinner() {
-        val categoriesList = mutableListOf<String>("All")
+    private fun setupCategoriesSpinner() {
+        val categoriesList = mutableListOf<String>()
+        categoriesList.add("All")
         Model.Companion.Category.values().forEach {
             categoriesList.add(it.categoryName)
         }
@@ -49,25 +52,23 @@ class ModelsFragment : Fragment() {
         binding.spCategories.adapter = spinnerAdapter
     }
 
-    private fun setupRecycler() {
+    private fun setupModelsRecycler() {
         binding.rvModels.adapter = adapter
         adapter.submitList(Data.carsList)
     }
 
     private fun listeners() {
-        binding.svSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                filter(query)
-                return true
+        binding.etSearch.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(query: CharSequence?, start: Int, before: Int, count: Int) {
+                filter(query.toString())
             }
 
-            override fun onQueryTextChange(newText: String?): Boolean {
-                binding.spCategories.setSelection(0)
-                filter(newText)
-                return true
-            }
+            override fun afterTextChanged(query: Editable?) {}
+
         })
-        adapter.itemClickListener = {
+        adapter.onItemClickListener = {
             findNavController().navigate(
                 ModelsFragmentDirections.actionModelsFragmentToModelOpenedFragment(
                     modelId = it.id
@@ -81,7 +82,7 @@ class ModelsFragment : Fragment() {
                 position: Int,
                 id: Long
             ) {
-                val selectedItem = binding.spCategories.selectedItem
+                val selectedItem = parent?.selectedItem
                 if (selectedItem == "All") {
                     adapter.submitList(Data.carsList)
                 } else {
@@ -91,8 +92,8 @@ class ModelsFragment : Fragment() {
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
-            }
 
+            }
         }
     }
 

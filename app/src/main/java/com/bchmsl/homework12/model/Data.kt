@@ -33,7 +33,7 @@ object Data {
         Model("AMG GT", 130700, Model.Companion.Category.CONVERTIBLE, D.img_mb_amg_gt_cabrio),
         Model("SL", null, Model.Companion.Category.ROADSTER, D.img_mb_sl_roadster),
         Model("EQS", 102310, Model.Companion.Category.ELECTRIC, D.img_mb_eqs)
-        )
+    )
 
     var selectedModelsList = listOf<Model>()
 }
